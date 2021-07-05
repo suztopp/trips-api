@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+	name = "Trip #{i}"
+	trip = Trip.create(name: name, country: 'United States', length: rand(14))
+	puts "Trip: #{name} created"
+end
