@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'trips#index'
   resources :trips
 
+  post '/sign-up', to: 'users#sign_up'
+  post '/login', to: 'users#login'
 end
