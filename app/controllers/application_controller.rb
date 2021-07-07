@@ -14,4 +14,8 @@ class ApplicationController < ActionController::API
       render json: { message: 'Unauthorized: Please log in' }
     end
   end
+
+  def current_user
+    @user
+  end
 end

@@ -3,15 +3,15 @@ class TripsController < ApplicationController
 	before_action :authenticated
 
   def index
-    render json: Trip.all.order(id: :asc)
+    render json: current_user.trips.order(updated_at: :asc), include: [ :activities ]
   end
 
 	def show
-		render json: @trip, status: :ok
+		render json: @trip, include: [:activities], status: :ok
 	end
 
   def create
-    @trip = Trip.new(trip_params)
+    @trip = current_user.trips.new(trip_params)
     if @trip.save
       # This is if it saves succesfully
       render json: @trip, status: :created
